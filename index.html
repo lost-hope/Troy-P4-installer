@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Firmware Installer</title>
+  <link rel="stylesheet" href="style.css">
+  <script
+    type="module"
+    src="https://unpkg.com/esp-web-tools@10.4.0/dist/web/install-button.js?module"
+  ></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="heading">Firmware Installer</h1>
+    <p id="versionLabel" class="version"></p>
+
+    <p>
+      Connect your ESP32-P4 board via USB and click Install. Use
+      <a href="https://www.google.com/chrome/" target="_blank" rel="noopener noreferrer">Chrome</a>
+      or Edge on a desktop computer - this needs the
+      <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Serial_API" target="_blank" rel="noopener noreferrer">Web Serial API</a>,
+      which isn't available on Firefox or on mobile browsers.
+    </p>
+
+    <div id="flashSizeRow" class="row" hidden>
+      <label for="flashSizeSelect">Flash size:</label>
+      <select id="flashSizeSelect"></select>
+    </div>
+
+    <div class="row inst-button">
+      <esp-web-install-button id="inst" manifest="">
+        <button class="btn" id="installBtn" slot="activate" disabled>Install</button>
+      </esp-web-install-button>
+    </div>
+
+    <p class="footer">
+      Powered by <a href="https://esphome.github.io/esp-web-tools/" target="_blank" rel="noopener noreferrer">ESP Web Tools</a>
+    </p>
+  </div>
+
+  <script src="firmware-config.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
